@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Qt helpers">
+      <UniqueIdentifier>{2ae7a6a1-5be3-438f-8108-d6850d644664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MFC application">
+      <UniqueIdentifier>{32ed2e2e-4296-4770-9c46-0d4a262ef3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MFC application\Other">
+      <UniqueIdentifier>{73b56ef3-5524-49db-a546-1ae6ae1127fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EventsShieldDialog.h">
+      <Filter>Source Files\Qt helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="QtModal_MFC.h">
+      <Filter>Source Files\Qt helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Source Files\MFC application\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Source Files\MFC application\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Source Files\MFC application</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCApplication.h">
+      <Filter>Source Files\MFC application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EventsShieldDialog.cpp">
+      <Filter>Source Files\Qt helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="QtModal_MFC.cpp">
+      <Filter>Source Files\Qt helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files\MFC application</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm_Qt.cpp">
+      <Filter>Source Files\MFC application</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCApplication.cpp">
+      <Filter>Source Files\MFC application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFCApplication.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MFCApplication.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\MFCApplication.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
