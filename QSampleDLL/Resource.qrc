@@ -1,0 +1,8 @@
+﻿<RCC>
+  <qresource prefix="/QSampleDLL">
+    <file alias="translations.qm">translations/QSampleDLL_en.qm</file>
+  </qresource>
+  <qresource prefix="/QSampleDLL" lang="es">
+    <file alias="translations.qm">translations/QSampleDLL_es.qm</file>
+  </qresource>
+</RCC>
