@@ -46,7 +46,7 @@ namespace
     dialog->setNumber(__LINE__);
   }
 
-  CString fromUtf8(const std::string &str)
+  CString utf8ToCString(const std::string &str)
   {
     const auto wlen = MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, str.c_str(), (int)str.size(), NULL, 0);
     if (wlen <= 0) { return {}; }
@@ -66,8 +66,8 @@ void CMainFrame::ShowDialog(QSampleDLL *dialog, QSampleDLL::Delegate *delegate)
   if (dialog->showDialog(delegate)) {
     CString message;
 
-    const auto text = fromUtf8(dialog->getText());          // explicit conversion
-    const auto wtext = CString{dialog->getWText().c_str()}; // implicit conversion
+    const auto text = utf8ToCString(dialog->getText());     // explicit conversion (from multi-byte string)
+    const auto wtext = CString{dialog->getWText().c_str()}; // implicit conversion (from wide string)
     message.Format(_T("Dialog accepted.\n\ngetText(): %s\ngetWText(): %s\ngetNumber(): %d"), text.GetString(),
                    wtext.GetString(), dialog->getNumber());
     MessageBox(message);
