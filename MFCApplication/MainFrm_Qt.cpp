@@ -41,12 +41,12 @@ namespace
   {
     dialog->setLocale("es");
 
-    // Document must be saved in UTF-8
+    // This source file must be saved in UTF-8
     dialog->setText(u8"This text should be encoded in UTF-8 👍🏼😎");
     dialog->setNumber(__LINE__);
   }
 
-  CString fromUtf8(const std::string &str)
+  CString utf8ToCString(const std::string &str)
   {
     const auto wlen = MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, str.c_str(), (int)str.size(), NULL, 0);
     if (wlen <= 0) { return {}; }
@@ -66,8 +66,8 @@ void CMainFrame::ShowDialog(QSampleDLL *dialog, QSampleDLL::Delegate *delegate)
   if (dialog->showDialog(delegate)) {
     CString message;
 
-    const auto text = fromUtf8(dialog->getText());          // explicit conversion
-    const auto wtext = CString{dialog->getWText().c_str()}; // implicit conversion
+    const auto text = utf8ToCString(dialog->getText());     // explicit conversion (from multi-byte string)
+    const auto wtext = CString{dialog->getWText().c_str()}; // implicit conversion (from wide string)
     message.Format(_T("Dialog accepted.\n\ngetText(): %s\ngetWText(): %s\ngetNumber(): %d"), text.GetString(),
                    wtext.GetString(), dialog->getNumber());
     MessageBox(message);
@@ -90,6 +90,7 @@ void CMainFrame::ShowModalDialog()
 
 void CMainFrame::ShowNonModalDialog()
 {
+  // Non-modal dialogs can use a local object instead of the class-wide one
   QSampleDLL dummy{"Non-modal"};
 
   ShowDialog(&dummy, nullptr);

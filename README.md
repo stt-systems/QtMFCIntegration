@@ -81,3 +81,7 @@ private:
   virtual void myDialogHasBeenClosed() override { QtEndModal(); }
 };
 ```
+
+## Embedding an MFC control on Qt
+
+Sometimes re-using an existing MFC component is a lot quicker than developing a new one based on Qt, at least in the short term, and there are some scenarios where it is possible to achieve, basically those that have limited interaction (like a visualization-only control or a customized button). The guidance here is to create a wrapper on the control that is not MFC-dependant, and create the MFC class on an empty `QWidget` (you can get the window handle `HWND` using `QWidget::winId`). The wrapper should also take care of events like resize, click, etc.
