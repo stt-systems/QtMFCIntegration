@@ -64,7 +64,7 @@ namespace STT::QtMFCIntegration
       using Class = typename Utils::ClassOf<FuncWillBeShown>::type;
       if constexpr (std::is_void_v<Class>) { // it is a function, lambda or std::function
         m_will_be_shown();
-      } else if constexpr (std::is_convertible_v<decltype(m_base_delegate), Class *>) {
+      } else if constexpr (std::is_convertible_v<decltype(m_base_delegate), Class *>) { // member
         if (m_base_delegate) { (m_base_delegate->*m_will_be_shown)(); }
       } else {
         static_assert(false, "Delegate doesn't have a method compatible with FuncWillBeShown");
@@ -75,7 +75,7 @@ namespace STT::QtMFCIntegration
       using Class = typename Utils::ClassOf<FuncHasBeenClosed>::type;
       if constexpr (std::is_void_v<Class>) { // it is a function, lambda or std::function
         m_has_been_closed();
-      } else if constexpr (std::is_convertible_v<decltype(m_base_delegate), Class *>) {
+      } else if constexpr (std::is_convertible_v<decltype(m_base_delegate), Class *>) { // member
         if (m_base_delegate) { (m_base_delegate->*m_has_been_closed)(); }
       } else {
         static_assert(false, "Delegate doesn't have a method compatible with FuncHasBeenClosed");

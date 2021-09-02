@@ -41,7 +41,7 @@ namespace
   {
     dialog->setLocale("es");
 
-    // Document must be saved in UTF-8
+    // This source file must be saved in UTF-8
     dialog->setText(u8"This text should be encoded in UTF-8 👍🏼😎");
     dialog->setNumber(__LINE__);
   }
@@ -90,6 +90,7 @@ void CMainFrame::ShowModalDialog()
 
 void CMainFrame::ShowNonModalDialog()
 {
+  // Non-modal dialogs can use a local object instead of the class-wide one
   QSampleDLL dummy{"Non-modal"};
 
   ShowDialog(&dummy, nullptr);
